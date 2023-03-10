@@ -23,6 +23,24 @@ public class UsersDetailsConfig {
                 .authorities("second_auth")
                 .roles("USER")
                 .build());
+        manager.createUser(
+                User.withUsername("user1")
+                        .password(encoder.encode("user1"))
+                        .roles("READ")
+                        .build()
+        );
+        manager.createUser(
+                User.withUsername("user2")
+                        .password(encoder.encode("user2"))
+                        .roles("READ","WRITE")
+                        .build()
+        );
+        manager.createUser(
+                User.withUsername("user3")
+                        .password(encoder.encode("user3"))
+                        .roles("DELETE")
+                        .build()
+        );
         return manager;
     }
 
